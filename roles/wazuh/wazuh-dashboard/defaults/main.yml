@@ -8,7 +8,11 @@ dashboard_node_name: node-1
 dashboard_server_host: "0.0.0.0"
 dashboard_server_port: "443"
 dashboard_server_name: "dashboard"
+<<<<<<< HEAD
 wazuh_version: 4.14.1
+=======
+wazuh_version: 5.0.0
+>>>>>>> fd968db0 (Bump to 5.0.0)
 indexer_cluster_nodes:
   - 127.0.0.1
 
