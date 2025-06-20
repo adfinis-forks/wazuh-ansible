@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - Packages-dev bucket migration to 4.14.1 ([#1756](https://github.com/wazuh/wazuh-ansible/pull/1756))
+- Replace OpenSearch deprecated settings ([#1699](https://github.com/wazuh/wazuh-ansible/pull/1699))
 
 ### Fixed
 
@@ -32,8 +33,6 @@ All notable changes to this project will be documented in this file.
 - Dashboard settings added ([#1783](https://github.com/wazuh/wazuh-ansible/pull/1783))
 - Bucket migrate from packages-dev.wazuh.com to xdrsiem-packages-dev ([#1715](https://github.com/wazuh/wazuh-ansible/pull/1715))
 - Bucket migration for packages-dev.wazuh.com ([#1710](https://github.com/wazuh/wazuh-ansible/pull/1710))
-=======
-- None
 
 ### Fixed
 
