@@ -9,7 +9,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- Bucket migration for packages-dev.wazuh.com ([#1709](https://github.com/wazuh/wazuh-ansible/pull/1709))- Replace OpenSearch deprecated settings ([#1699](https://github.com/wazuh/wazuh-ansible/pull/1699))
+- Bucket migrate from packages-dev.wazuh.com to xdrsiem-packages-dev ([#1714](https://github.com/wazuh/wazuh-ansible/pull/1714))- Replace OpenSearch deprecated settings ([#1699](https://github.com/wazuh/wazuh-ansible/pull/1699))
 
 ### Fixed
 
@@ -59,8 +59,6 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 
 - Correct filebeat_node_name in distributed playbook and readme ([#1778](https://github.com/wazuh/wazuh-ansible/pull/1778))
-=======
-- None
 
 ### Fixed
 
