@@ -119,7 +119,7 @@ config:
           challenge: false
           config:
             subject_key: "{{ wazuh_indexer_oidc.openid_subject_key | default('preferred_username') }}"
-            roles_key: "{{ indewazuh_indexer_oidc.openid_roles_keyxer_openid_roles_key | default('groups') }}"
+            roles_key: "{{ wazuh_indexer_oidc.openid_roles_key | default('groups') }}"
             openid_connect_url: "{{ wazuh_indexer_oidc.openid_connect_url }}"
             client_id: "{{ wazuh_indexer_oidc.openid_client_id }}"
             client_secret: "{{ wazuh_indexer_oidc.openid_client_secret }}"
