@@ -85,6 +85,15 @@
       mode: "0640"
     register: indexer_config_changed
 
+  - name: Deploy OpenSearch role_mapping.yml
+    template:
+      src: templates/roles_mapping.yml.j2
+      dest: "{{ indexer_sec_plugin_conf_path }}/roles_mapping.yml"
+      owner: wazuh-indexer
+      group: wazuh-indexer
+      mode: "0640"
+    register: indexer_config_changed
+
   - name: Initialize the Opensearch security index in Wazuh indexer
     command: >
       sudo -u wazuh-indexer OPENSEARCH_PATH_CONF={{ indexer_conf_path }}
