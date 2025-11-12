@@ -32,9 +32,11 @@ local_certs_path: "{{ playbook_dir }}/indexer/certificates"
 
 # Auth configuration
 wazuh_dashboard_oidc:
+  openid_multiple_auth_enabled: "true"
+  openid_trust_dynamic_headers: "true"
   openid_auth_type: basic  # basic|saml|openid
-  openid_connect_url: ""
-  openid_client_id: ""
-  openid_client_secret: ""
-  openid_base_redirect_url: ""   # z.B. https://wazuh.example.com
-  openid_logout_url: ""
+  openid_connect_url: "https://example.domain.com/realms/master/.well-known/openid-configuration"
+  openid_client_id: "wazuh-dashboard"
+  openid_client_secret: "changeme"
+  openid_base_redirect_url: "https://wazuh.domain.com"
+  openid_logout_url: "https://example.domain.com/realms/master/protocol/openid-connect/logout"
