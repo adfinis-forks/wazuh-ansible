@@ -471,7 +471,7 @@ wazuh_manager_config_defaults:
 
 # Configure integrations: https://documentation.wazuh.com/current/user-manual/manager/integration-with-external-apis.html
 
-# wazuh_manager_config:
+# wazuh_manager_integration:
 #   - name: slack
 #     hook_url: https://example.domain.com/hooks/xxxxxxxxx
 #     api_key: your_api_key
