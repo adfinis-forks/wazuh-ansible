@@ -433,17 +433,16 @@ wazuh_manager_config_defaults:
 # Configure integrations: https://documentation.wazuh.com/current/user-manual/manager/integration-with-external-apis.html
 
 # wazuh_manager_config:
-#   integration:
-#     - name: slack
-#       hook_url: https://example.domain.com/hooks/xxxxxxxxx
-#       api_key: your_api_key
-#       alert_format: json
-#       rule_id: "" # < optional
-#       level: 13 # < optional
-#       group: "" # < optional
-#       event_location: "" # < optional
-#       options: "" # < optional
-#     - name: slack2
-#       hook_url: https://example.domain.com/hooks/xxxxxxxxx
-#       api_key: your_api_key
-#       alert_format: json
+#   - name: slack
+#     hook_url: https://example.domain.com/hooks/xxxxxxxxx
+#     api_key: your_api_key
+#     alert_format: json
+#     rule_id: "" # < optional
+#     level: 13 # < optional
+#     group: "" # < optional
+#     event_location: "" # < optional
+#     options: "" # < optional
+#   - name: slack2
+#     hook_url: https://example.domain.com/hooks/xxxxxxxxx
+#     api_key: your_api_key
+#     alert_format: json
