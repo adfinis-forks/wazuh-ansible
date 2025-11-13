@@ -569,7 +569,7 @@
     <hidden>{{ wazuh_manager_config.cluster.hidden }}</hidden>
   </cluster>
 
-{% if wazuh_manager_integration is defined and wazuh_manager_integration %}
+{% if wazuh_manager_integration is not none %}
 {% for item in wazuh_manager_integration %}
   <integration>
     {% if item.name is defined %}
