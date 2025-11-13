@@ -97,3 +97,20 @@
 
 - import_tasks: RMRedHat.yml
   when: ansible_os_family == 'RedHat'
+
+- name: Ensure dashboard config directory exists
+  file:
+    path: /etc/wazuh-dashboard
+    state: directory
+    owner: wazuh-dashboard
+    group: wazuh-dashboard
+    mode: "0755"
+
+- name: Deploy opensearch_dashboards.yml with OIDC settings
+  template:
+    src: "templates/opensearch_dashboards.yml.j2"
+    dest: /etc/wazuh-dashboard/opensearch_dashboards.yml
+    owner: wazuh-dashboard
+    group: wazuh-dashboard
+    mode: "0640"
+  notify: Restart wazuh-dashboard
