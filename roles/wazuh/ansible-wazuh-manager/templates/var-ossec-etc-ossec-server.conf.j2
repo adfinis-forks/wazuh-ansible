@@ -678,8 +678,7 @@
     <hidden>{{ wazuh_manager_config.cluster.hidden }}</hidden>
   </cluster>
 
-{% if wazuh_manager_integration is not none %}
-{% for item in wazuh_manager_integration %}
+{% for item in wazuh_manager_integrations %}
   <integration>
     {% if item.name is defined %}
     <name>{{ item.name }}</name>
@@ -711,5 +710,4 @@
   </integration>
 
 {% endfor %}
-{% endif %}
 </ossec_config>
