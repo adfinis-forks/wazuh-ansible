@@ -447,7 +447,7 @@ wazuh_manager_integrations: []
 #
 
 custom_integration_files: []
-#    - name: mattermost-config.json # < files must be placed under files/yourfile.py
+#    - path_name: files/mattermost-config.json # < files must be placed under files/yourfile.py
 #      owner: root
 #      group: wazuh
 #      mode: 0640
