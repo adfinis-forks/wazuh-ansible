@@ -48,3 +48,11 @@ generate_certs: true
 perform_installation: true
 
 indexer_nolog_sensible: true
+
+# Auth configuration
+indexer_enable_openid: false
+wazuh_indexer_oidc:
+  openid_connect_url: ""
+  openid_roles_key: roles
+  openid_subject_key: sub
+  openid_admin_group: wazuh-admin
