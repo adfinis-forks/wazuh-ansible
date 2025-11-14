@@ -432,9 +432,9 @@ wazuh_manager_config_defaults:
 
 # Configure integrations: https://documentation.wazuh.com/current/user-manual/manager/integration-with-external-apis.html
 
-# wazuh_manager_integration:
+wazuh_manager_integrations: []
 #   - name: slack
-#     hook_url: https://example.domain.com/hooks/xxxxxxxxx
+#     hook_url: "https://your-mattermost-server.com/hooks/your-webhook-id"
 #     api_key: your_api_key
 #     alert_format: json
 #     rule_id: "" # < optional
@@ -442,7 +442,16 @@ wazuh_manager_config_defaults:
 #     group: "" # < optional
 #     event_location: "" # < optional
 #     options: "" # < optional
-#   - name: slack2
-#     hook_url: https://example.domain.com/hooks/xxxxxxxxx
-#     api_key: your_api_key
+#   - name: custom-integration # < add a list of files to copy bellow
 #     alert_format: json
+#
+
+custom_integration_files: []
+#    - name: mattermost-config.json # < files must be placed under files/yourfile.py
+#      owner: root
+#      group: wazuh
+#      mode: 0640
+#    - name: custom-mattermost.py
+#      owner: root
+#      group: wazuh
+#      mode: 0750
