@@ -208,7 +208,7 @@
 
 - name: Copy custom api integration
   copy:
-    src: "{{ item.name }}"
+    src: "{{ item.src }}"
     dest: "{{ wazuh_dir }}/integrations/{{ item.name }}"
     owner: "{{ item.owner }}"
     group: "{{ item.group }}"
