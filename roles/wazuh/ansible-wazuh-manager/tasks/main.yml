@@ -289,6 +289,16 @@
     - init
     - config
 
+- name: Copy custom api integration
+  copy:
+    src: "files/{{ item.name }}"
+    dest: "{{ wazuh_dir }}/integrations/{{ item.name }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+  loop: "{{ custom_integration_files }}"
+  when: custom_integration_files is defined
+
 - name: Ossec-authd password
   template:
     src: authd_pass.j2
