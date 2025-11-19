@@ -1,0 +1,76 @@
+---
+# In this file users, backendroles and hosts can be mapped to Open Distro Security roles.
+# Permissions for Opendistro roles are configured in roles.yml
+
+_meta:
+  type: "rolesmapping"
+  config_version: 2
+
+# Define your roles mapping here
+
+## Default roles mapping
+{{ {
+    'all_access': (
+      wazuh_roles_all_access
+      | combine(wazuh_roles_all_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+{{ {
+    'own_index': (
+      wazuh_roles_own_index
+      | combine(wazuh_roles_own_index_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+{{ {
+    'logstash': (
+      wazuh_roles_logstash
+      | combine(wazuh_roles_logstash_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+{{ {
+    'readall': (
+      wazuh_roles_readall
+      | combine(wazuh_roles_readall_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+{{ {
+    'manage_snapshots': (
+      wazuh_roles_manage_snapshots
+      | combine(wazuh_roles_manage_snapshots_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+{{ {
+    'kibana_server': (
+      wazuh_roles_kibana_server
+      | combine(wazuh_roles_kibana_server_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+{{ {
+    'kibana_user': (
+      wazuh_roles_kibana_user
+      | combine(wazuh_roles_kibana_user_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Wazuh monitoring and statistics index permissions
+{{ {
+    'manage_wazuh_index': (
+      wazuh_roles_manage_index
+      | combine(wazuh_roles_manage_index_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
