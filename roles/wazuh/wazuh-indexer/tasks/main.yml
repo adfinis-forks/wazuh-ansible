@@ -49,6 +49,16 @@
         force: yes
       tags: install
 
+    - name: Create path.repo if defined
+      ansible.builtin.file:
+        path: "{{ indexer_repo_path }}"
+        owner: wazuh-indexer
+        group: wazuh-indexer
+        state: directory
+        mode: '0750'
+      tags: install
+      when: indexer_repo_path is defined
+
     - include_tasks: security_actions.yml
       tags:
         - security
