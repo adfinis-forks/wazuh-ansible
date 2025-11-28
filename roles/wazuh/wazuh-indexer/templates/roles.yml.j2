@@ -1,0 +1,352 @@
+_meta:
+  type: "roles"
+  config_version: 2
+
+# Restrict users so they can only view visualization and dashboard on OpenSearchDashboards
+{{ {
+    'kibana_read_only': (
+      wazuh_roles_kibana_read_only
+      | combine(wazuh_roles_kibana_read_only_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# The security REST API access role is used to assign specific users access to change the security settings through the REST API.
+{{ {
+    'security_rest_api_access': (
+      wazuh_roles_security_rest_api_access
+      | combine(wazuh_roles_security_rest_api_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+{{ {
+    'security_rest_api_full_access': (
+      wazuh_roles_security_rest_api_full_access
+      | combine(wazuh_roles_security_rest_api_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to view monitors, destinations and alerts
+{{ {
+    'alerting_read_access': (
+      wazuh_roles_alerting_read_access
+      | combine(wazuh_roles_alerting_read_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to view and acknowledge alerts
+{{ {
+    'alerting_ack_alerts': (
+      wazuh_roles_alerting_ack_alerts
+      | combine(wazuh_roles_alerting_ack_alerts_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to use all alerting functionality
+{{ {
+    'alerting_full_access': (
+      wazuh_roles_alerting_full_access
+      | combine(wazuh_roles_alerting_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allow users to read Anomaly Detection detectors and results
+{{ {
+    'anomaly_read_access': (
+      wazuh_roles_anomaly_read_access
+      | combine(wazuh_roles_anomaly_read_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to use all Anomaly Detection functionality
+{{ {
+    'anomaly_full_access': (
+      wazuh_roles_anomaly_full_access
+      | combine(wazuh_roles_anomaly_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allow users to execute read only k-NN actions
+{{ {
+    'knn_read_access': (
+      wazuh_roles_knn_read_access
+      | combine(wazuh_roles_knn_read_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allow users to use all k-NN functionality
+{{ {
+    'knn_full_access': (
+      wazuh_roles_knn_full_access
+      | combine(wazuh_roles_knn_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allow users to execute read only ip2geo datasource action
+{{ {
+    'ip2geo_datasource_read_access': (
+      wazuh_roles_ip2geo_datasource_read_access
+      | combine(wazuh_roles_ip2geo_datasource_read_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allow users to use all ip2geo datasource action
+{{ {
+    'ip2geo_datasource_full_access': (
+      wazuh_roles_ip2geo_datasource_full_access
+      | combine(wazuh_roles_ip2geo_datasource_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to read Notebooks
+{{ {
+    'notebooks_read_access': (
+      wazuh_roles_notebooks_read_access
+      | combine(wazuh_roles_notebooks_read_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to all Notebooks functionality
+{{ {
+    'notebooks_full_access': (
+      wazuh_roles_notebooks_full_access
+      | combine(wazuh_roles_notebooks_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to read observability objects
+{{ {
+    'observability_read_access': (
+      wazuh_roles_observability_read_access
+      | combine(wazuh_roles_observability_read_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to all Observability functionality
+{{ {
+    'observability_full_access': (
+      wazuh_roles_observability_full_access
+      | combine(wazuh_roles_observability_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to all PPL functionality
+{{ {
+    'ppl_full_access': (
+      wazuh_roles_ppl_full_access
+      | combine(wazuh_roles_ppl_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to read and download Reports
+{{ {
+    'reports_instances_read_access': (
+      wazuh_roles_reports_instances_read_access
+      | combine(wazuh_roles_reports_instances_read_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to read and download Reports and Report-definitions
+{{ {
+    'reports_read_access': (
+      wazuh_roles_reports_read_access
+      | combine(wazuh_roles_reports_read_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to all Reports functionality
+{{ {
+    'reports_full_access': (
+      wazuh_roles_reports_full_access
+      | combine(wazuh_roles_reports_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to use all asynchronous-search functionality
+{{ {
+    'asynchronous_search_full_access': (
+      wazuh_roles_asynchronous_search_full_access
+      | combine(wazuh_roles_asynchronous_search_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to read stored asynchronous-search results
+{{ {
+    'asynchronous_search_read_access': (
+      wazuh_roles_asynchronous_search_read_access
+      | combine(wazuh_roles_asynchronous_search_read_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows user to use all index_management actions - ism policies, rollups, transforms
+{{ {
+    'index_management_full_access': (
+      wazuh_roles_index_management_full_access
+      | combine(wazuh_roles_index_management_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to use all cross cluster replication functionality at leader cluster
+{{ {
+    'cross_cluster_replication_leader_full_access': (
+      wazuh_roles_cross_cluster_replication_leader_full_access
+      | combine(wazuh_roles_cross_cluster_replication_leader_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to use all cross cluster replication functionality at follower cluster
+{{ {
+    'cross_cluster_replication_follower_full_access': (
+      wazuh_roles_cross_cluster_replication_follower_full_access
+      | combine(wazuh_roles_cross_cluster_replication_follower_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to use all cross cluster search functionality at remote cluster
+{{ {
+    'cross_cluster_search_remote_full_access': (
+      wazuh_roles_cross_cluster_search_remote_full_access
+      | combine(wazuh_roles_cross_cluster_search_remote_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allow users to read ML stats/models/tasks
+{{ {
+    'ml_read_access': (
+      wazuh_roles_ml_read_access
+      | combine(wazuh_roles_ml_read_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to use all ML functionality
+{{ {
+    'ml_full_access': (
+      wazuh_roles_ml_full_access
+      | combine(wazuh_roles_ml_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to use all Notifications functionality
+{{ {
+    'notifications_full_access': (
+      wazuh_roles_notifications_full_access
+      | combine(wazuh_roles_notifications_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to read Notifications config/channels
+{{ {
+    'notifications_read_access': (
+      wazuh_roles_notifications_read_access
+      | combine(wazuh_roles_notifications_read_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to use all snapshot management functionality
+{{ {
+    'snapshot_management_full_access': (
+      wazuh_roles_snapshot_management_full_access
+      | combine(wazuh_roles_snapshot_management_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to see snapshots, repositories, and snapshot management policies
+{{ {
+    'snapshot_management_read_access': (
+      wazuh_roles_snapshot_management_read_access
+      | combine(wazuh_roles_snapshot_management_read_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows user to use point in time functionality
+{{ {
+    'point_in_time_full_access': (
+      wazuh_roles_point_in_time_full_access
+      | combine(wazuh_roles_point_in_time_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to see security analytics detectors and others
+{{ {
+    'security_analytics_read_access': (
+      wazuh_roles_security_analytics_read_access
+      | combine(wazuh_roles_security_analytics_read_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to use all security analytics functionality
+{{ {
+    'security_analytics_full_access': (
+      wazuh_roles_security_analytics_full_access
+      | combine(wazuh_roles_security_analytics_full_access_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Allows users to view and acknowledge alerts
+{{ {
+    'security_analytics_ack_alerts': (
+      wazuh_roles_security_analytics_ack_alerts
+      | combine(wazuh_roles_security_analytics_ack_alerts_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+# Wazuh monitoring and statistics index permissions
+{{ {
+    'manage_wazuh_index': (
+      wazuh_roles_manage_wazuh_index
+      | combine(wazuh_roles_manage_wazuh_index_override | default({}), recursive=True)
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+{% if wazuh_roles_custom_entries is defined %}
+# Custom roles
+{% for role_name, role_data in wazuh_roles_custom_entries.items() %}
+{{ {
+    role_name: (
+      role_data
+      | combine(
+          (wazuh_roles_custom_entries_override | default({})).get(role_name, {}),
+          recursive=True
+        )
+    )
+  }
+  | to_nice_yaml(indent=2)
+}}
+{% endfor %}
+{% endif %}
