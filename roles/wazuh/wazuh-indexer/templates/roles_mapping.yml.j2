@@ -74,3 +74,16 @@ _meta:
   }
   | to_nice_yaml(indent=2)
 }}
+{% if wazuh_roles_custom_mapping is defined %}
+{% for role_name, mapping in wazuh_roles_custom_mapping.items() %}
+{{ {
+    role_name: {
+      'backend_roles': mapping.backend_roles | default([]),
+      'users': mapping.users | default([]),
+      'hosts': mapping.hosts | default([])
+    }
+  }
+  | to_nice_yaml(indent=2)
+}}
+{% endfor %}
+{% endif %}
