@@ -20,8 +20,8 @@ kibanaserver:
   reserved: true
   description: "kibanaserver user"
 
-# Custom internal users
 {% if wazuh_internal_users_entries is defined %}
+# Custom internal users
 {% for user_name, user_data in wazuh_internal_users_entries.items() %}
 {{ user_name }}:
   hash: "{{ user_data.hash }}"
