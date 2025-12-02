@@ -19,3 +19,20 @@ kibanaserver:
   hash: "{{ dashboard_password }}"
   reserved: true
   description: "kibanaserver user"
+
+# Custom internal users
+{% if wazuh_internal_users_entries is defined %}
+{% for user_name, user_data in wazuh_internal_users_entries.items() %}
+{{ user_name }}:
+  hash: "{{ user_data.hash }}"
+  reserved: {{ user_data.reserved | default(false) }}
+  description: "{{ user_data.description | default(user_name) }}"
+{% if user_data.backend_roles is defined and user_data.backend_roles | length > 0 %}
+  backend_roles:
+{%   for role in user_data.backend_roles %}
+  - "{{ role }}"
+{%   endfor %}
+{% endif %}
+
+{% endfor %}
+{% endif %}

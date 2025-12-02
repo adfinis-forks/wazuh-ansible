@@ -76,6 +76,26 @@
     vars:
       indexer_password_hash: "{{ indexer_kibanaserver_password_hashed.stdout_lines | last }}"
 
+  - name: Hash passwords for custom internal users
+    shell: |
+      export JAVA_HOME=/usr/share/wazuh-indexer/jdk
+      {{ indexer_sec_plugin_tools_path }}/hash.sh -p '{{ item.value.hash }}'
+    loop: "{{ wazuh_internal_users_entries | default({}) | dict2items }}"
+    register: wazuh_internal_users_hashed
+    when: wazuh_internal_users_entries is defined
+    no_log: '{{ indexer_nolog_sensible | bool }}'
+
+  - name: Set passwords for custom internal users
+    replace:
+      path: "{{ indexer_sec_plugin_conf_path }}/internal_users.yml"
+      regexp: '(?<={{ item.item.key }}:\n  hash: )(.*)(?=)'
+      replace: "{{ item.stdout_lines | last | quote }}"
+    loop: "{{ wazuh_internal_users_hashed.results | default([]) }}"
+    when:
+      - wazuh_internal_users_entries is defined
+      - wazuh_internal_users_hashed is defined
+    no_log: '{{ indexer_nolog_sensible | bool }}'
+
   - name: Deploy OpenSearch Security config.yml (OIDC)
     template:
       src: templates/opensearch-security.yml.j2
