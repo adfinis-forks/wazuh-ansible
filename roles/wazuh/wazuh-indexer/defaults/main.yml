@@ -30,6 +30,7 @@ indexer_sec_plugin_conf_path: /etc/wazuh-indexer/opensearch-security
 indexer_sec_plugin_tools_path: /usr/share/wazuh-indexer/plugins/opensearch-security/tools
 indexer_conf_path: /etc/wazuh-indexer
 indexer_index_path: /var/lib/wazuh-indexer/
+#indexer_repo_path:
 
 # Security password
 indexer_custom_user: ""
